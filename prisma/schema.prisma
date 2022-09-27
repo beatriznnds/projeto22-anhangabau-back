@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+  Post     Post[]
+
+  @@map("users")
+}
+
+model Street {
+  id         Int          @id @default(autoincrement())
+  name       String
+  city       String[]     @default(["São Paulo"])
+  Post       Post[]
+  History    History[]
+  Cordinates Cordinates[]
+
+  @@map("streets")
+}
+
+model Post {
+  id       Int    @id @default(autoincrement())
+  imageUrl String
+  caption  String
+  userId   Int
+  user     User   @relation(fields: [userId], references: [id])
+  streetId Int
+  street   Street @relation(fields: [streetId], references: [id])
+
+  @@map("posts")
+}
+
+model History {
+  id       Int    @id @default(autoincrement())
+  streetId Int
+  street   Street @relation(fields: [streetId], references: [id])
+  text     String
+
+  @@map("history")
+}
+
+model Cordinates {
+  id        Int    @id @default(autoincrement())
+  latitude  String
+  longitude String
+  streetId  Int
+  street    Street @relation(fields: [streetId], references: [id])
+
+  @@map("coordinates")
+}
