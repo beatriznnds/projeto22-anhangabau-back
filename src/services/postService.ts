@@ -12,6 +12,10 @@ export async function insert(post: TypePostData) {
   if (!validUser) {
     throw { type: "Not Found", message: `User not found!` };
   }
+  const invalidPic = await postRepo.isImageValid(post.imageUrl);
+  if (invalidPic) {
+    throw { type: "Unauthorized", message: `This pic is already in use!` };
+  }
   const newPost = {
     imageUrl: post.imageUrl,
     caption: post.caption,

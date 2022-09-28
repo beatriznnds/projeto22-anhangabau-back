@@ -3,4 +3,5 @@ export interface Error {
   message: string;
   status?: number;
   code?: number;
+  type: string;
 }
