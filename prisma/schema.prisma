@@ -34,7 +34,7 @@ model Street {
 
 model Post {
   id       Int    @id @default(autoincrement())
-  imageUrl String
+  imageUrl String @unique
   caption  String
   userId   Int
   user     User   @relation(fields: [userId], references: [id])

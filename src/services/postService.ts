@@ -20,3 +20,8 @@ export async function insert(post: TypePostData) {
   };
   await postRepo.insert(newPost);
 }
+
+export async function getPosts() {
+  const result = await postRepo.getPosts();
+  return result;
+}
