@@ -5,8 +5,8 @@ import streetRouter from "./streetRouter";
 
 const router = Router();
 
-router.use(postRouter);
 router.use(userRouter);
 router.use(streetRouter);
+router.use(postRouter);
 
 export default router;
