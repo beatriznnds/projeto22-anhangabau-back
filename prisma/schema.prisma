@@ -28,6 +28,7 @@ model Street {
   History    History[]
   Cordinates Cordinates[]
 
+  @@unique([name, city])
   @@map("streets")
 }
 
@@ -59,5 +60,6 @@ model Cordinates {
   streetId  Int
   street    Street @relation(fields: [streetId], references: [id])
 
+  @@unique([streetId, latitude, longitude])
   @@map("coordinates")
 }
