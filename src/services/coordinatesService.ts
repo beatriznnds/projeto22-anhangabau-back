@@ -17,3 +17,8 @@ export async function insert(
   };
   await coordinatesRepo.insert(newCoordinates);
 }
+
+export async function find() {
+  const result = await coordinatesRepo.find();
+  return result;
+}

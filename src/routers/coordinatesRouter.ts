@@ -10,5 +10,6 @@ coordinatesRouter.post(
   validateSchema(newCoordinates),
   coordinatesController.insert
 );
+coordinatesRouter.get("/coordinates", coordinatesController.find);
 
 export default coordinatesRouter;

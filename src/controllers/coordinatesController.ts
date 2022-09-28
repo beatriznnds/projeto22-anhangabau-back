@@ -7,3 +7,8 @@ export async function insert(req: Request, res: Response) {
   await coordinatesService.insert(coordinates, streetName);
   res.status(201).send({ message: `Coordinates created!` });
 }
+
+export async function find(req: Request, res: Response) {
+  const result = await coordinatesService.find();
+  res.status(200).send(result);
+}
