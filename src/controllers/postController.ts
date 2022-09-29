@@ -9,6 +9,7 @@ export async function insert(req: Request, res: Response) {
 }
 
 export async function getPosts(req: Request, res: Response) {
-  const result = await postService.getPosts();
+  const id = Number(req.params.id);
+  const result = await postService.getPosts(id);
   res.status(200).send(result);
 }

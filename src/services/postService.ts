@@ -31,7 +31,7 @@ export async function insert(post: TypePostData, userId: number) {
   await postRepo.insert(newPost);
 }
 
-export async function getPosts() {
-  const result = await postRepo.getPosts();
+export async function getPosts(id: number) {
+  const result = await postRepo.getPosts(id);
   return result;
 }

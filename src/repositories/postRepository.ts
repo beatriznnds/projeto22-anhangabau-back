@@ -9,8 +9,11 @@ export async function isImageValid(imageUrl: string) {
   return await prisma.post.findFirst({ where: { imageUrl } });
 }
 
-export async function getPosts() {
+export async function getPosts(streetId: number) {
   const result = prisma.post.findMany({
+    where: {
+      streetId,
+    },
     select: {
       id: true,
       imageUrl: true,

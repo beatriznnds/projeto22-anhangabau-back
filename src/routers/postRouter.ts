@@ -8,6 +8,6 @@ const postRouter = Router();
 
 postRouter.use(checkValidToken);
 postRouter.post("/info", validateSchema(newPost), postController.insert);
-postRouter.get("/info", postController.getPosts);
+postRouter.get("/info/:id", postController.getPosts);
 
 export default postRouter;
