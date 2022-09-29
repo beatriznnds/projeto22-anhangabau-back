@@ -33,13 +33,15 @@ model Street {
 }
 
 model Post {
-  id       Int    @id @default(autoincrement())
-  imageUrl String @unique
-  caption  String
-  userId   Int
-  user     User   @relation(fields: [userId], references: [id])
-  streetId Int
-  street   Street @relation(fields: [streetId], references: [id])
+  id           Int        @id @default(autoincrement())
+  imageUrl     String     @unique
+  caption      String
+  userId       Int
+  user         User       @relation(fields: [userId], references: [id])
+  streetId     Int
+  street       Street     @relation(fields: [streetId], references: [id])
+  coordinateId Int
+  coordinate   Cordinates @relation(fields: [coordinateId], references: [id])
 
   @@map("posts")
 }
@@ -59,6 +61,7 @@ model Cordinates {
   longitude String
   streetId  Int
   street    Street @relation(fields: [streetId], references: [id])
+  Post      Post[]
 
   @@unique([streetId, latitude, longitude])
   @@map("coordinates")

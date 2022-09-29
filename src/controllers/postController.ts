@@ -3,7 +3,8 @@ import * as postService from "../services/postService";
 
 export async function insert(req: Request, res: Response) {
   const post = req.body;
-  await postService.insert(post);
+  const userId = res.locals.userId;
+  await postService.insert(post, userId);
   res.status(201).send({ message: `Post created!` });
 }
 

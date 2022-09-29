@@ -15,7 +15,9 @@ export async function getPosts() {
       id: true,
       imageUrl: true,
       caption: true,
-      street: { select: { id: true, name: true } },
+      street: {
+        select: { id: true, name: true },
+      },
       user: { select: { id: true, name: true } },
     },
   });

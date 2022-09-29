@@ -7,5 +7,4 @@ export const newPost = Joi.object<TypePostData>({
     .regex(/(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/),
   caption: Joi.string().required(),
   streetId: Joi.number().required(),
-  userId: Joi.number().required(),
 });

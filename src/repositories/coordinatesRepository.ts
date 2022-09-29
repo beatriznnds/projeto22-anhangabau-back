@@ -15,3 +15,8 @@ export async function find() {
     },
   });
 }
+
+export async function findByStreet(streetId: number) {
+  const result = await prisma.cordinates.findFirst({ where: { streetId } });
+  return result;
+}
