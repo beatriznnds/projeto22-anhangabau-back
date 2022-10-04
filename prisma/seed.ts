@@ -1,36 +1,19 @@
-/* eslint-disable no-console */
 import { prisma } from "../src/database";
 
 async function main() {
-  const streets = [
-    {
-      name: "Rio Anhangabaú",
-    },
-    {
-      name: "Largo da Memória",
-    },
-    {
-      name: "Viaduto do Chá",
-    },
-    {
-      name: "Parque Anhangabaú",
-    },
-    {
-      name: "Largo do Paissandú",
-    },
-    {
-      name: "Rua das Quitandeiras",
-    },
-    {
-      name: "Chafariz da Misericórdia",
-    },
-    {
-      name: "Rua das Lavadeiras",
-    },
-  ];
+  const street = {
+    name: "Rio Anhangabaú",
+  };
 
-  await prisma.street.createMany({
-    data: streets,
+  await prisma.street.upsert({
+    create: street,
+    update: {},
+    where: {
+      name_city: {
+        name: street.name,
+        city: "São Paulo",
+      },
+    },
   });
 }
 
