@@ -33,3 +33,13 @@ export async function createToken() {
   const token = jwt.sign({ email: user.email }, JWT_SECRET as string);
   return token;
 }
+
+interface Id {
+  userId: number;
+}
+
+export async function getUserId() {
+  const token = await createToken();
+  const { userId } = jwt.verify(token, process.env.JWT_SECRET as string) as Id;
+  return userId;
+}

@@ -57,3 +57,7 @@ describe("GET /coordinates", () => {
     expect(result.status).toBe(401);
   });
 });
+
+afterAll(async () => {
+  await prisma.$disconnect();
+});

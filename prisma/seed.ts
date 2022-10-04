@@ -15,6 +15,16 @@ async function main() {
       },
     },
   });
+
+  const coordinates = {
+    latitude: "-10.2367",
+    longitude: "-20.3476",
+    streetId: 1,
+  };
+
+  await prisma.cordinates.create({
+    data: coordinates,
+  });
 }
 
 main()
