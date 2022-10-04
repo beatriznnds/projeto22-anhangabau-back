@@ -2,7 +2,6 @@ import app from "../../src/app";
 import supertest from "supertest";
 import { prisma } from "../../src/database";
 import * as userFactory from "../factories/userFactory";
-import { Console } from "console";
 
 beforeEach(async () => {
   await prisma.$executeRaw`TRUNCATE TABLE users CASCADE;`;
