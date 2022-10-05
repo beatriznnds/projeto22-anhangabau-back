@@ -29,7 +29,7 @@ describe("POST /streets", () => {
   });
 });
 
-describe("GET /coordinates", () => {
+describe("GET /streets", () => {
   it("should return 200 and a list of streets", async () => {
     const token = await userFactory.createToken();
     const result = await supertest(app)

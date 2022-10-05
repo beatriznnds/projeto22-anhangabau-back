@@ -38,8 +38,7 @@ interface Id {
   userId: number;
 }
 
-export async function getUserId() {
-  const token = await createToken();
+export async function getUserId(token: string) {
   const { userId } = jwt.verify(token, process.env.JWT_SECRET as string) as Id;
   return userId;
 }

@@ -11,6 +11,7 @@ beforeEach(async () => {
 describe("POST /info", () => {
   it("should return 201 for valid params", async () => {
     const token = await userFactory.createToken();
+    await userFactory.getUserId(token);
     const post = await postFactory.createPost();
     const result = await supertest(app)
       .post("/info")
