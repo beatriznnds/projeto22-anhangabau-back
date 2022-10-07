@@ -5,7 +5,7 @@ import * as userFactory from "../factories/userFactory";
 import * as streetFactory from "../factories/streetFactory";
 
 beforeEach(async () => {
-  await prisma.$executeRaw`TRUNCATE TABLE posts;`;
+  await prisma.$executeRaw`TRUNCATE TABLE streets CASCADE;`;
 });
 
 describe("POST /streets", () => {

@@ -8,8 +8,10 @@ export function validateSchema(schema: Joi.ObjectSchema) {
         abortEarly: false,
       });
     } catch (e) {
-      if (e instanceof ValidationError)
+      if (e instanceof ValidationError) {
+        console.log(e.details);
         throw { type: "ValidationError", details: e.details };
+      }
     }
     next();
   };

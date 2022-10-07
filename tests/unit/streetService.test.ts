@@ -47,7 +47,7 @@ describe("POST /streets", () => {
           city: ["São Paulo"],
         };
       });
-    const result = await streetService.insert({
+    const result = streetService.insert({
       name: "Rio Anhangabaú",
       city: ["São Paulo"],
     });

@@ -22,8 +22,16 @@ async function main() {
     streetId: 1,
   };
 
-  await prisma.cordinates.create({
-    data: coordinates,
+  await prisma.cordinates.upsert({
+    create: coordinates,
+    update: {},
+    where: {
+      streetId_latitude_longitude: {
+        streetId: coordinates.streetId,
+        latitude: coordinates.latitude,
+        longitude: coordinates.longitude,
+      },
+    },
   });
 }
 

@@ -12,6 +12,6 @@ export async function createPostInvalidStreet() {
   return {
     imageUrl: faker.image.imageUrl() + ".jpg",
     caption: faker.lorem.words(15),
-    streetId: faker.random.numeric(100),
+    streetId: 100,
   };
 }
