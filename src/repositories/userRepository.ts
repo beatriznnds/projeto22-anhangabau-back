@@ -12,3 +12,7 @@ export async function insert(user: TypeUserData) {
 export async function findByEmail(email: string) {
   return await prisma.user.findFirst({ where: { email } });
 }
+
+export async function reset() {
+  await prisma.user.deleteMany();
+}
