@@ -14,5 +14,5 @@ export async function findByEmail(email: string) {
 }
 
 export async function reset() {
-  await prisma.user.deleteMany();
+  return await prisma.user.deleteMany();
 }
