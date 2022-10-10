@@ -14,5 +14,7 @@ export async function findByEmail(email: string) {
 }
 
 export async function reset() {
-  return await prisma.user.deleteMany();
+  await prisma.$transaction([
+    prisma.$executeRaw`TRUNCATE TABLE users RESTART IDENTITY CASCADE`,
+  ]);
 }

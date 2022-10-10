@@ -37,7 +37,7 @@ model Post {
   imageUrl     String     @unique
   caption      String
   userId       Int
-  user         User       @relation(fields: [userId], references: [id])
+  user         User       @relation(fields: [userId], references: [id], onDelete: SetNull)
   streetId     Int
   street       Street     @relation(fields: [streetId], references: [id])
   coordinateId Int
